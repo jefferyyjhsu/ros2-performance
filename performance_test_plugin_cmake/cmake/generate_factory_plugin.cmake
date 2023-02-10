@@ -32,8 +32,9 @@ function(generate_factory_plugin argMSGS argSRVS)
     ${CUSTOM_TARGET_PATH}
   )
   ament_target_dependencies(${LIBRARY_NAME} ${LIBRARY_DEPENDENCIES})
-  rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
-  target_link_libraries(${LIBRARY_NAME} ${cpp_typesupport_target})
+  #rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
+  #target_link_libraries(${LIBRARY_NAME} ${cpp_typesupport_target})
+  rosidl_target_interfaces(${LIBRARY_NAME} ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
   install(TARGETS
     ${LIBRARY_NAME}
